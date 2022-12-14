@@ -14,7 +14,7 @@
 .NavBar .title {
   font-size: 25px;
   float: left;
-  margin: 5px;
+  margin: 5px 15px;
   text-decoration: none;
   color: black;
 }
@@ -51,7 +51,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: rgb(0, 29, 66);
 }
 
 .logout {

@@ -1,5 +1,11 @@
+import Footer from "../../components/Footer/Footer";
+import SupportBody from "../../components/SupportBody/SupportBody";
+
 export default function SupportPage() {
   return (
-    <h1>Support Page</h1>
+    <>
+      <SupportBody />
+      <Footer />
+    </>
   )
 }

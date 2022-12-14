@@ -12,6 +12,7 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [posts, setPosts] = useState([]);
 
   return (
     <main className="App">
@@ -21,10 +22,14 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/home" element={<HomePage />} />
-              <Route path="/create" element={<CreatePostPage />} />
+              <Route path="/create" element={<CreatePostPage setPosts={setPosts} posts={posts} />} />
               <Route path="/feed" element={<FeedPage />} />
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/support" element={<SupportPage />} />
+              <Route path="/beginner" element={<SupportPage />} />
+              <Route path="/intermediate" element={<SupportPage />} />
+              <Route path="/advanced" element={<SupportPage />} />
+              <Route path="/orpheus" element={<SupportPage />} />
             </Routes>
           </>
           :

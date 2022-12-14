@@ -1,0 +1,43 @@
+.CommunityBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.CommunityBody img {
+  width: 300px;
+}
+
+.quote {
+  border: #333 solid .5px;
+  width: 60vw;
+  margin: 30px;
+  padding: 10px;
+}
+
+.CommunityBody .left {
+  float: left;
+}
+
+.CommunityBody .right {
+  float: right;
+  margin: 50px;
+
+}
+
+.CommunityBody .statement {
+  margin: 50px;
+}
+
+.CommunityBody .community {
+  text-decoration: none;
+  font-size: large;
+  background-color: #333;
+  border-radius: 10px;
+  color: white;
+  padding: 30px;
+  grid-column: span 2;
+}
+
+.CommunityBody .span-2 {
+  grid-template-columns: span 2;
+}
