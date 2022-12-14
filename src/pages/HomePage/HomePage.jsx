@@ -1,5 +1,11 @@
+import HomeBody from "../../components/Homebody/HomeBody";
+import Footer from "../../components/Footer/Footer"
+
 export default function HomePage() {
   return (
-    <h1>Home Page</h1>
+    <>
+    <HomeBody />
+    <Footer />
+    </>
   )
 }

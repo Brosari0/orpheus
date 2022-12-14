@@ -1,0 +1,23 @@
+.HomeBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin: 50px;
+}
+
+.HomeBody h1 {
+  grid-column: span 2;
+}
+
+.HomeBody div h3 {
+  display: flex;
+  padding-left: 8px;
+}
+
+.HomeBody div p {
+  text-align: left;
+}
+
+.HomeBody button {
+  float: left;
+}

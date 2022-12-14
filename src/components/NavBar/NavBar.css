@@ -1,5 +1,7 @@
 .NavBar {
-  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   font-size: 17px;
   background-color: white;
   width: 100%;
