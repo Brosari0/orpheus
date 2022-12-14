@@ -11,8 +11,9 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav className='NavBar'>
       <img src="https://cdn-icons-png.flaticon.com/128/3913/3913866.png" alt="🎼" />
-      <span className='title'>Orpheus</span>
+      <Link to="/home" className='title'>Orpheus</Link>
       <ul>
+      <li><Link to="/home">Home</Link></li>
       <li><Link to="/create">Create</Link></li>
       <li><Link to="/feed">Feed</Link></li>
       <li><Link to="/community">Community</Link></li>

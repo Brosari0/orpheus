@@ -6,12 +6,20 @@
   height: 50px;
   padding: 0;
   letter-spacing: 1px;
+  border-bottom: #333 solid .5px;
 }
 
 .NavBar .title {
   font-size: 25px;
   float: left;
   margin: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.title a:hover {
+  background-color: #333;
+  color: white;
 }
 
 .NavBar img {
