@@ -9,6 +9,10 @@ import CommunityPage from '../CommunityPage/CommunityPage';
 import SupportPage from '../SupportPage/SupportPage';
 import FeedPage from '../FeedPage/FeedPage';
 import NavBar from '../../components/NavBar/NavBar';
+import BeginnerPage from '../BeginnerPage/BeginnerPage';
+import IntermediatePage from '../IntermediatePage/IntermediatePage';
+import AdvancedPage from '../AdvancedPage/AdvancedPage';
+import OrpheusPage from '../OrpheusPage/OrpheusPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -26,10 +30,10 @@ export default function App() {
               <Route path="/feed" element={<FeedPage />} />
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/support" element={<SupportPage />} />
-              <Route path="/beginner" element={<SupportPage />} />
-              <Route path="/intermediate" element={<SupportPage />} />
-              <Route path="/advanced" element={<SupportPage />} />
-              <Route path="/orpheus" element={<SupportPage />} />
+              <Route path="/beginner" element={<BeginnerPage />} />
+              <Route path="/intermediate" element={<IntermediatePage />} />
+              <Route path="/advanced" element={<AdvancedPage />} />
+              <Route path="/orpheus" element={<OrpheusPage />} />
             </Routes>
           </>
           :
