@@ -25,7 +25,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/home" element={<HomePage />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/create" element={<CreatePostPage setPosts={setPosts} posts={posts} />} />
               <Route path="/feed" element={<FeedPage />} />
               <Route path="/community" element={<CommunityPage />} />
