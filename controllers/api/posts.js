@@ -1,5 +1,16 @@
+const Post = require('../../models/post')
+
 module.exports = {
   getMedia,
+  create,
+}
+
+async function create(req, res) {
+  req.body.user = req.user._id
+  const post = new Post(req.body)
+  console.log(post);
+  post.save();
+  res.json(post);
 }
 
 async function getMedia() {
@@ -10,7 +21,7 @@ async function getMedia() {
   });
   let video = document.querySelector('video');
   video.srcObject = mediaStream;
-  
+
   video.onloadedmetadata = function(evt) {
     video.play();
   }

@@ -8,4 +8,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 // GET (get a media stream)
 router.get('/media', ensureLoggedIn, postsCtrl.getMedia);
 
+// POST (create a post) 
+router.post('/', ensureLoggedIn, postsCtrl.create);
+
 module.exports = router;

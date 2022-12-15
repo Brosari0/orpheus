@@ -1,7 +1,7 @@
 import CreatePost from "../../components/CreatePost/CreatePost";
 
-export default function CreatePostPage() {
+export default function CreatePostPage({ posts, setPosts}) {
   return (
-    <CreatePost />
+    <CreatePost posts={posts} setPosts={setPosts} />
   );
 }

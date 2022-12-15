@@ -9,8 +9,10 @@ const postSchema = new Schema({
     required: true,
   },
   description: {type: String},
-  webRTC: {type: String},
+  media: {type: String},
   url: {type: String}
 }, {
   timestamps: true
 });
+
+module.exports = mongoose.model('Post', postSchema);
