@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
@@ -13,10 +13,19 @@ import BeginnerPage from '../BeginnerPage/BeginnerPage';
 import IntermediatePage from '../IntermediatePage/IntermediatePage';
 import AdvancedPage from '../AdvancedPage/AdvancedPage';
 import OrpheusPage from '../OrpheusPage/OrpheusPage';
+import * as postsAPI from '../../utilities/posts-api'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function displayPosts() {
+      const postData = await postsAPI.find();
+      setPosts(postData)
+    }
+    displayPosts();
+  }, []);
 
   return (
     <main className="App">
@@ -27,7 +36,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/create" element={<CreatePostPage setPosts={setPosts} posts={posts} />} />
-              <Route path="/feed" element={<FeedPage />} />
+              <Route path="/feed" element={<FeedPage posts={posts} />} />
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/support" element={<SupportPage />} />
               <Route path="/beginner" element={<BeginnerPage />} />

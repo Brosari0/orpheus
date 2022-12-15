@@ -7,11 +7,11 @@ export default function CreatePost({posts, setPosts}) {
     title: '',
     url: '',
     description: '',
-    media: ''
+    media: []
   });
 
   function handleChange(evt) {
-    setFormData({[evt.target.name]: evt.target.value})
+    setFormData({...formData, [evt.target.name]: evt.target.value});
     console.log(formData);
   }
 
@@ -27,7 +27,7 @@ export default function CreatePost({posts, setPosts}) {
       title: '',
       url: '',
       description: '',
-      media: ''
+      media: {}
     });
   }
 
@@ -59,9 +59,9 @@ export default function CreatePost({posts, setPosts}) {
     }
     mediaRecorder.onstop = (evt) => {
       let blob = new Blob(chunks, { 'type': 'video/mp4;' });
+      setFormData({ ...formData, media: chunks })
       chunks = [];
       let videoURL = window.URL.createObjectURL(blob);
-      setFormData({ media: videoURL })
       vidSave.src = videoURL;
     }
   }
@@ -71,7 +71,7 @@ export default function CreatePost({posts, setPosts}) {
   // }
 
   return (
-    <>
+    <div>
     <h1>Create a Post</h1>
     <form className="CreatePost" onSubmit={handleSubmit}>
       <label>Title:</label>
@@ -82,10 +82,12 @@ export default function CreatePost({posts, setPosts}) {
       <input name="description" type="text" value={formData.description} onChange={handleChange}/>
       <button type="submit">Submit</button>
     </form>
-    <button id="start">Start</button><button id="stop">Stop</button>
+    <div className="vid-body">
+      <button id="start">Start</button><button id="stop">Stop</button>
       <button onClick={handleGetMedia}>Get Media</button>
-      <video id="video" autoPlay width={"700px"} controls muted></video>
-      <video id="vidSave" width={"650px"} controls></video>
-    </>
+      <video id="video" autoPlay width={"500px"} controls muted></video>
+      <video id="vidSave" width={"500px"} controls></video>
+    </div>
+    </div>
   )
 }

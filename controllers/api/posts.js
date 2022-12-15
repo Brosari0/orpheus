@@ -1,8 +1,8 @@
 const Post = require('../../models/post')
 
 module.exports = {
-  getMedia,
   create,
+  find,
 }
 
 async function create(req, res) {
@@ -13,43 +13,11 @@ async function create(req, res) {
   res.json(post);
 }
 
-async function getMedia() {
-  let mediaStream = null;
-  mediaStream = await navigator.mediaDevices.getUserMedia({
-    audio: true,
-    video: { width: 1280, height: 720}
-  });
-  let video = document.querySelector('video');
-  video.srcObject = mediaStream;
-
-  video.onloadedmetadata = function(evt) {
-    video.play();
+async function find(req, res) {
+  try {
+    const posts = await Post.find();
+    res.json(posts);
+  } catch (err) {
+    res.status(400).json(err);
   }
-
-  let start = document.getElementById('start');
-  let stop = document.getElementById('stop');
-  let vidSave = document.getElementById('vidSave');
-  let mediaRecorder = new MediaRecorder(mediaStream);
-  let chunks = [];
-
-  start.addEventListener('click', (evt) => {
-    mediaRecorder.start();
-  });
-  stop.addEventListener('click', (evt) => {
-    mediaRecorder.stop();
-  });
-  mediaRecorder.ondataavailable = function(evt) {
-    chunks.push(evt.data);
-  }
-  mediaRecorder.onstop = (evt) => {
-    let blob = new Blob(chunks, { 'type': 'video/mp4;' });
-    chunks = [];
-    let videoURL = window.URL.createObjectURL(blob);
-    vidSave.src = videoURL;
-  }
-}
-
-async function useless() {
-  localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true});
-  remoteStream = new MediaStream();
 }
