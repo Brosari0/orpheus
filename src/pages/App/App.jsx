@@ -13,7 +13,7 @@ import BeginnerPage from '../BeginnerPage/BeginnerPage';
 import IntermediatePage from '../IntermediatePage/IntermediatePage';
 import AdvancedPage from '../AdvancedPage/AdvancedPage';
 import OrpheusPage from '../OrpheusPage/OrpheusPage';
-import * as postsAPI from '../../utilities/posts-api'
+import * as postsAPI from '../../utilities/posts-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -26,7 +26,7 @@ export default function App() {
     }
     displayPosts();
   }, []);
-
+  
   return (
     <main className="App">
       { user ?

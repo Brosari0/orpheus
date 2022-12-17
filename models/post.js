@@ -9,10 +9,7 @@ const postSchema = new Schema({
     required: true,
   },
   description: {type: String},
-  media: {type: Array},
   url: {type: String}
-}, {
-  timestamps: true
 });
 
 module.exports = mongoose.model('Post', postSchema);

@@ -1,4 +1,4 @@
-export default function FeedList({ post }) {
+export default function FeedList({ post, key }) {
   return (
     <div>
     {post.title}

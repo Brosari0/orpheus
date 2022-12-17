@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "./CreatePost.css"
 import * as postsAPI from "../../utilities/posts-api"
 
@@ -7,27 +7,31 @@ export default function CreatePost({posts, setPosts}) {
     title: '',
     url: '',
     description: '',
-    media: []
+    media: '',
   });
+  
+  const [videoData, setVideoData] = useState(null);
 
   function handleChange(evt) {
     setFormData({...formData, [evt.target.name]: evt.target.value});
-    console.log(formData);
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let { title, url, description, media } = formData
-    console.log("formdata:", formData);
-    const payload = { title, url, description, media }
-    console.log("payload:", payload);
+    let vidForm = new FormData();
+    vidForm.append('title', formData.title);
+    vidForm.append('video', videoData);
+    let video = await postsAPI.upload(vidForm);
+    let { title, url, description } = formData
+    const payload = { title, url, description }
+    payload.url = video.url;
     const newPost = await postsAPI.create(payload);
     setPosts([...posts, newPost]);
     setFormData({
       title: '',
       url: '',
       description: '',
-      media: {}
+      media: '',
     });
   }
 
@@ -42,6 +46,7 @@ export default function CreatePost({posts, setPosts}) {
     video.onloadedmetadata = function(evt) {
       video.play();
     }
+    
     let start = document.getElementById('start');
     let stop = document.getElementById('stop');
     let vidSave = document.getElementById('vidSave');
@@ -59,7 +64,7 @@ export default function CreatePost({posts, setPosts}) {
     }
     mediaRecorder.onstop = (evt) => {
       let blob = new Blob(chunks, { 'type': 'video/mp4;' });
-      setFormData({ ...formData, media: chunks })
+      setVideoData(blob);
       chunks = [];
       let videoURL = window.URL.createObjectURL(blob);
       vidSave.src = videoURL;
