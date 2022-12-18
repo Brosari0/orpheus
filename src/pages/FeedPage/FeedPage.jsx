@@ -6,15 +6,11 @@ export default function FeedPage({ posts }) {
   return (
     <>
     <h1>Feed Page</h1>
-    {/* {posts.map((post) => (
-      {post.media.map((media) => ( */}
-        <ul>
-        <li>
-        {/* <FeedList post={post} key={post.id} /> */}
-        </li>
-      </ul>
-        {/* ))}
-    ))} */}
+    {posts.map((post, idx) => (
+        <div>
+          <FeedList post={post} />
+        </div>
+    ))}
     <Footer />
     </>
   );

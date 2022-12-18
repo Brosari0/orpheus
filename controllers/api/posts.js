@@ -1,4 +1,4 @@
-const uploadFile = require('../../config/upload-file');
+const {uploadFile, downloadFile} = require('../../config/aws-server-manager');
 const Post = require('../../models/post')
 const Video = require('../../models/video');
 
@@ -6,10 +6,10 @@ module.exports = {
   create,
   find,
   upload,
+  getVidSource,
 }
 
 async function upload(req, res) {
-  console.log(req.body);
   try {
     if (req.file) {
       // The uploadFile function will return the uploaded file's S3 endpoint
@@ -24,7 +24,6 @@ async function upload(req, res) {
       throw new Error('Something went wrong.');
     }
   } catch (err) {
-    console.log(err);
     res.status(400).json(err.message);
   }
 }
@@ -32,7 +31,6 @@ async function upload(req, res) {
 async function create(req, res) {
   req.body.user = req.user._id
   const post = new Post(req.body)
-  console.log(post);
   post.save();
   res.json(post);
 }
@@ -43,5 +41,14 @@ async function find(req, res) {
     res.json(posts);
   } catch (err) {
     res.status(400).json(err);
+  }
+}
+
+async function getVidSource(req, res) {
+  try {
+    const source = await downloadFile(req.body)
+    res.json(source);
+  } catch (err) {
+    res.status(402).json(err);
   }
 }
