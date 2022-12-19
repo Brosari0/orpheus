@@ -1,0 +1,18 @@
+.FeedList {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  width: 500px;
+}
+
+.feed-video {
+  display: grid;
+  width: 500px;
+  height: 300px;
+  float: right;
+}
+
+
+.description {
+  grid-column: span 2;
+}

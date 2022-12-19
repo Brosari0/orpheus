@@ -1,0 +1,14 @@
+.FeedPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #333 solid 0.3px;
+  background-color: white;
+  width: 600px;
+  height: 600px;
+}
+
+.structure {
+  display: grid;
+  background-color: #333;
+}

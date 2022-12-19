@@ -31,8 +31,10 @@ async function create(req, res) {
   req.body.user = req.user._id
   if (req.body.url.includes('watch?v=')) {
     req.body.isYoutube = true;
-    req.body.url = req.body.url.replace('watch?v=', 'embed/').slice(0, req.body.url.indexOf('&') - 2);
+    req.body.url = req.body.url.replace('watch?v=', 'embed/');
+    if (req.body.url.includes("&")) req.body.url = req.body.url.slice(0, req.body.url.indexOf('&') - 2)
   }
+  
   const post = new Post(req.body)
   post.save();
   res.json(post);
@@ -40,7 +42,7 @@ async function create(req, res) {
 
 async function find(req, res) {
   try {
-    const posts = await Post.find({});
+    const posts = await Post.find({}).populate("user").exec();
     res.json(posts);
   } catch (err) {
     res.status(400).json(err);
