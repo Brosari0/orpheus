@@ -1,12 +1,7 @@
 import "./FeedList.css"
 import "./practice.css"
-import { getVidSource } from "../../utilities/posts-api"
 
 export default function FeedList({ post }) {
-  async function getVid() {
-    const src = await getVidSource(post);
-    return post.url = src
-  }
 
   return (
     <div  className="FeedList">
@@ -14,7 +9,11 @@ export default function FeedList({ post }) {
       {post.user.name}
       {post.title}
       {post.description}
-      <video src={`${post.url}`}></video>
+      {post.url.includes("mp4") ?
+        <video id="feed-video" controls src={`${post.url}`}></video>
+        : 
+        <iframe src={`${post.url}`} frameborder="0"></iframe>
+      }
     </div>
     </div>
   )

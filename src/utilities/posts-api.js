@@ -13,7 +13,3 @@ export async function find() {
 export async function upload(formData) {
   return sendRequest(`${BASE_URL}/upload`, 'POST', formData, true)
 }
-
-export async function getVidSource(payload) {
-  return sendRequest(`${BASE_URL}/download`, 'POST', payload)
-}

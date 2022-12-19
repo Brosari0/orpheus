@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useEffect } from "react"
 import "./CreatePost.css"
 import * as postsAPI from "../../utilities/posts-api"
 
@@ -9,8 +9,16 @@ export default function CreatePost({posts, setPosts}) {
     description: '',
     media: '',
   });
-  
+  const [recording, setRecording] = useState(false);
+
   const [videoData, setVideoData] = useState(null);
+
+  useEffect(() => {
+    function getMedia() {
+      handleGetMedia();
+    }
+    getMedia();
+  }, [])
 
   function handleChange(evt) {
     setFormData({...formData, [evt.target.name]: evt.target.value});
@@ -18,13 +26,15 @@ export default function CreatePost({posts, setPosts}) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let vidForm = new FormData();
-    vidForm.append('title', formData.title);
-    vidForm.append('video', videoData);
-    let video = await postsAPI.upload(vidForm);
     let { title, url, description } = formData
     const payload = { title, url, description }
-    payload.url = video.url;
+    if (videoData) {
+      let vidForm = new FormData();
+      vidForm.append('title', formData.title);
+      vidForm.append('video', videoData);
+      let video = await postsAPI.upload(vidForm);
+      payload.url = video.url;
+    }
     const newPost = await postsAPI.create(payload);
     setPosts([...posts, newPost]);
     setFormData({
@@ -88,10 +98,19 @@ export default function CreatePost({posts, setPosts}) {
       <button type="submit">Submit</button>
     </form>
     <div className="vid-body">
-      <button id="start">Start</button><button id="stop">Stop</button>
-      <button onClick={handleGetMedia}>Get Media</button>
       <video id="video" autoPlay width={"500px"} controls muted></video>
       <video id="vidSave" width={"500px"} controls></video>
+
+        <button 
+          style={{"visibility": recording ? "visible" : "hidden"}} 
+          onClick={() => setRecording(!recording)} id="stop">Stop
+        </button>
+
+        <button 
+          style={{"visibility": recording ? "hidden" : "visible"}} 
+          onClick={() => setRecording(!recording)} id="start">Start
+        </button>
+
     </div>
     </div>
   )

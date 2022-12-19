@@ -6,8 +6,7 @@ module.exports = {
   create,
   find,
   upload,
-  getVidSource,
-}
+};
 
 async function upload(req, res) {
   try {
@@ -30,6 +29,10 @@ async function upload(req, res) {
 
 async function create(req, res) {
   req.body.user = req.user._id
+  if (req.body.url.includes('watch?v=')) {
+    req.body.isYoutube = true;
+    req.body.url = req.body.url.replace('watch?v=', 'embed/').slice(0, req.body.url.indexOf('&') - 2);
+  }
   const post = new Post(req.body)
   post.save();
   res.json(post);
@@ -41,14 +44,5 @@ async function find(req, res) {
     res.json(posts);
   } catch (err) {
     res.status(400).json(err);
-  }
-}
-
-async function getVidSource(req, res) {
-  try {
-    const source = await downloadFile(req.body)
-    res.json(source);
-  } catch (err) {
-    res.status(402).json(err);
   }
 }

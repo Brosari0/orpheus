@@ -9,7 +9,8 @@ const postSchema = new Schema({
     required: true,
   },
   description: {type: String},
-  url: {type: String}
+  url: {type: String},
+  isYoutube: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('Post', postSchema);

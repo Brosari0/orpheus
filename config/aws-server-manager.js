@@ -1,4 +1,4 @@
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3');
 // Ensure that the .env contains the following keys
 const {S3_REGION, S3_BUCKET, S3_BASE_URL, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
 
@@ -16,7 +16,6 @@ const s3Client = new S3Client({ region: S3_REGION});
 
 module.exports = {
   uploadFile,
-  downloadFile,
 }
 async function uploadFile(file) {
   // Create an instance of the S3 client
@@ -24,7 +23,7 @@ async function uploadFile(file) {
   const s3Params = {
     Bucket: S3_BUCKET,
     // Create a unique filename to use as the S3 Key
-    Key: `${Date.now()}-${file.originalname}`,
+    Key: `${Date.now()}.mp4`,
     // The uploaded file's binary content is held in the buffer property
     Body: file.buffer
   };
@@ -33,29 +32,4 @@ async function uploadFile(file) {
   // Return the endpoint to download the file
   return `${S3_BASE_URL}${S3_BUCKET}/${s3Params.Key}`;
 };
-
-async function downloadFile(file) {
-  const s3Client = new S3Client({ region: S3_REGION});
-  const s3Params = {
-    Bucket: S3_BUCKET,
-    Key: file.url
-  };
-  async function run() {
-    try {
-      console.log("made it into run")
-      const data = await s3Client.send(new GetObjectCommand(s3Params));
-      const vidString = await data.Body.transformToString();
-      console.log(vidString);
-      return vidString;
-    } catch (err) {
-      console.log("error", err);
-    }
-  }
-  run();
-  // await s3Client.getObject(s3Params, function(err, data) {
-  //   if (err) console.log(err, err.stack);
-  //   else console.log(data);
-  // });
-}
-
 

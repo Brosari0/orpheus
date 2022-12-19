@@ -8,3 +8,11 @@
   gap: 30px;
   margin: 20px;
 }
+
+#start {
+  background-color: green;
+}
+
+#stop {
+  background-color: red;
+}

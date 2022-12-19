@@ -15,7 +15,5 @@ router.post('/create', ensureLoggedIn, postsCtrl.create);
 // POST (upload a video)
 router.post('/upload', ensureLoggedIn, upload.single('video'), postsCtrl.upload);
 
-// POST (download a file)
-router.post('/download', ensureLoggedIn, postsCtrl.getVidSource);
 
 module.exports = router;
