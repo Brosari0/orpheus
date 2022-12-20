@@ -13,3 +13,11 @@ export async function find() {
 export async function upload(formData) {
   return sendRequest(`${BASE_URL}/upload`, 'POST', formData, true)
 }
+
+export async function deletePost(postId) {
+  return sendRequest(`${BASE_URL}/delete/${postId}`, 'DELETE')
+}
+
+export async function edit() {
+
+}

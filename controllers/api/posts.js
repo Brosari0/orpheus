@@ -6,7 +6,12 @@ module.exports = {
   create,
   find,
   upload,
+  deletePost,
 };
+
+async function deletePost(req, res) {
+  Post.findOneAndDelete(req.params.id);
+}
 
 async function upload(req, res) {
   try {

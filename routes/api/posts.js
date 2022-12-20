@@ -15,5 +15,7 @@ router.post('/create', ensureLoggedIn, postsCtrl.create);
 // POST (upload a video)
 router.post('/upload', ensureLoggedIn, upload.single('video'), postsCtrl.upload);
 
+// DELETE (delete a post)
+router.delete('/delete/:id', ensureLoggedIn, postsCtrl.deletePost)
 
 module.exports = router;

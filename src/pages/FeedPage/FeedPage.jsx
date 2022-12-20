@@ -9,7 +9,7 @@ export default function FeedPage({ posts }) {
     <h1>Feed Page</h1>
     {posts.map((post, idx) => (
         <div className="FeedPage">
-          <FeedList post={post} />
+          <FeedList post={post} key={post._id} />
         </div>
     ))}
     <Footer />
