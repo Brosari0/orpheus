@@ -27,11 +27,11 @@
 
 .feed-video-aside {
   position: relative;
-  left: 35vw;
 }
 
 .feed-aside {
   grid-column: 1;
+  width: 40vw;
   margin-left: 10vw;
   margin-top: 10vh;
 }
