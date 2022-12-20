@@ -1,14 +1,22 @@
 .FeedPage {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  border: #333 solid 0.3px;
+  border: #333 solid 5px;
   background-color: white;
-  width: 600px;
+  width: 100vw;
   height: 600px;
+  
 }
 
 .structure {
   display: grid;
+  justify-content: center;
   background-color: #333;
+}
+
+h1 {
+  background-color: white;
+  padding: 30px;
 }

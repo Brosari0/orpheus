@@ -14,6 +14,7 @@ import IntermediatePage from '../IntermediatePage/IntermediatePage';
 import AdvancedPage from '../AdvancedPage/AdvancedPage';
 import OrpheusPage from '../OrpheusPage/OrpheusPage';
 import * as postsAPI from '../../utilities/posts-api';
+import DetailPage from '../DetailPage/DetailPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -43,6 +44,7 @@ export default function App() {
               <Route path="/intermediate" element={<IntermediatePage />} />
               <Route path="/advanced" element={<AdvancedPage />} />
               <Route path="/orpheus" element={<OrpheusPage />} />
+              <Route path="/feed/:id" element={<DetailPage posts={posts} />} />
             </Routes>
           </>
           :

@@ -9,6 +9,7 @@
   padding: 0;
   letter-spacing: 1px;
   border-bottom: #333 solid .5px;
+  z-index: 100;
 }
 
 .NavBar .title {

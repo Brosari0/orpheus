@@ -1,7 +1,14 @@
 .CreatePost {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 30px;
   padding: 20px;
 }
+
+.create-form {
+  grid-column: span 2;
+}
+
 .vid-body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

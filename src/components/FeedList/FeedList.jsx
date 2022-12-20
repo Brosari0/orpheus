@@ -1,27 +1,33 @@
+import { Link } from "react-router-dom"
+import DetailPage from "../../pages/DetailPage/DetailPage"
 import "./FeedList.css"
 
 export default function FeedList({ post }) {
-
   return (
     <div  className="FeedList">
-      <div className="name">
-      {post.user.name}
-      </div>
-      <h4 className="title">
-      {post.title}
-      </h4>
-      <div>
-      {
-        post.url.includes("mp4") ?
-        <video className="feed-video" controls src={`${post.url}`}></video>
-        : 
-        <iframe className="feed-video" src={`${post.url}`} frameborder="0"></iframe>
-      }
-      </div>
-      <p className="description">
+      <aside className="feed-aside">
+
+          <h4 className="feed-title">
+          {post.title}
+          </h4>
+      <p className="feed-description">
       {post.description}
-      <button>Comments</button>
-      </p>
+      <Link to={`/feed/${post._id}`}><button>Comments</button></Link>
+        </p>
+      </aside>
+      <div>
+        <div className="feed-video-aside">
+          <div className="feed-name">
+            {post.user.name}
+          </div>
+          {
+            post.url.includes("mp4") ?
+            <video className="feed-video-list" controls src={`${post.url}`}></video>
+            : 
+            <iframe className="feed-video-list" src={`${post.url}`} frameborder="0"></iframe>
+          }
+        </div>
+      </div>
     </div>
 
   )

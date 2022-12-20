@@ -7,7 +7,6 @@ export default function CreatePost({posts, setPosts}) {
     title: '',
     url: '',
     description: '',
-    media: '',
   });
   const [recording, setRecording] = useState(false);
 
@@ -41,7 +40,6 @@ export default function CreatePost({posts, setPosts}) {
       title: '',
       url: '',
       description: '',
-      media: '',
     });
   }
 
@@ -86,9 +84,8 @@ export default function CreatePost({posts, setPosts}) {
   // }
 
   return (
-    <div>
-    <h1>Create a Post</h1>
-    <form className="CreatePost" onSubmit={handleSubmit}>
+    <div className="CreatePost">
+    <form className="create-form" onSubmit={handleSubmit}>
       <label>Title:</label>
       <input name="title" type="text" value={formData.title} onChange={handleChange}/>
       <label>URL (If YouTube):</label>
@@ -96,21 +93,18 @@ export default function CreatePost({posts, setPosts}) {
       <label>Description:</label>
       <input name="description" type="text" value={formData.description} onChange={handleChange}/>
       <button type="submit">Submit</button>
-    </form>
-    <div className="vid-body">
-      <video id="video" autoPlay width={"500px"} controls muted></video>
-      <video id="vidSave" width={"500px"} controls></video>
-
         <button 
           style={{"visibility": recording ? "visible" : "hidden"}} 
           onClick={() => setRecording(!recording)} id="stop">Stop
         </button>
-
         <button 
           style={{"visibility": recording ? "hidden" : "visible"}} 
           onClick={() => setRecording(!recording)} id="start">Start
         </button>
-
+    </form>
+    <div className="vid-body">
+      <video id="video" autoPlay width={"500px"} controls muted></video>
+      <video id="vidSave" width={"500px"} controls></video>
     </div>
     </div>
   )

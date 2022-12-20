@@ -5,14 +5,37 @@
   width: 500px;
 }
 
-.feed-video {
-  display: grid;
-  width: 500px;
-  height: 300px;
-  float: right;
+.feed-description {
+
 }
 
+.feed-name {
 
-.description {
-  grid-column: span 2;
+}
+
+.FeedList button {
+  position: relative;
+
+}
+
+.feed-video-list {
+  position: relative;
+  margin: 50px;
+  width: 40vw;
+  height: 30vh;
+}
+
+.feed-video-aside {
+  position: relative;
+  left: 35vw;
+}
+
+.feed-aside {
+  grid-column: 1;
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+
+.feed-title {
+  font-size: xx-large;
 }

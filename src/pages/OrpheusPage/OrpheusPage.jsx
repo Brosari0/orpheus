@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer/Footer"
 import "./OrpheusPage.css"
 
 export default function OrpheusPage() {
@@ -31,6 +32,7 @@ export default function OrpheusPage() {
           stronger he might have been able to save her. 
         </p>
         <a href="https://en.wikipedia.org/wiki/Orpheus" target="_blank">Read more</a>
+        <Footer />
       </div>
   )
 }
