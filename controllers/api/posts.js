@@ -40,7 +40,7 @@ async function create(req, res) {
       if (req.body.url.includes("&")) req.body.url = req.body.url.slice(0, req.body.url.indexOf('&') - 2)
     }
     const post = new Post(req.body)
-    post.save();
+    await post.save();
     res.json(post);
   } catch {
     res.status(400)

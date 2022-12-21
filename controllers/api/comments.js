@@ -7,8 +7,8 @@ module.exports = {
 async function create(req, res) {
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
-  let post = await Post.findById(req.params.id);
+  let post = await Post.findById(req.params.postId);
   post.comments.push(req.body);
-  post.save();
+  await post.save();
   res.json(post);
 }

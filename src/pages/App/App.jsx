@@ -19,14 +19,22 @@ import DetailPage from '../DetailPage/DetailPage';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [posts, setPosts] = useState([]);
+  
 
   useEffect(() => {
     async function displayPosts() {
       const postData = await postsAPI.find();
-      setPosts(postData)
+      setPosts(postData);
     }
     displayPosts();
   }, []);
+
+  function updatePost(updatedPost) {
+    const idx = posts.findIndex((p) => p._id === updatedPost._id);
+    const postsCopy = [...posts];
+    postsCopy[idx] = updatedPost;    
+    setPosts(postsCopy);
+  }
   
   return (
     <main className="App">
@@ -44,7 +52,7 @@ export default function App() {
               <Route path="/intermediate" element={<IntermediatePage />} />
               <Route path="/advanced" element={<AdvancedPage />} />
               <Route path="/orpheus" element={<OrpheusPage />} />
-              <Route path="/feed/:id" element={<DetailPage user={user} posts={posts} />} />
+              <Route path="/feed/:id" element={<DetailPage updatePost={updatePost} posts={posts} />} />
             </Routes>
           </>
           :

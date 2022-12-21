@@ -11,7 +11,7 @@ export default function FeedList({ post }) {
           {post.title}
           </h4>
       <p className="feed-description">
-      {post.description}
+      {post.description} <br/>
       <Link to={`/feed/${post._id}`}><button>Comments</button></Link>
         </p>
       </aside>
@@ -24,7 +24,7 @@ export default function FeedList({ post }) {
             post.url.includes("mp4") ?
             <video className="feed-video-list" controls src={`${post.url}`}></video>
             : 
-            <iframe className="feed-video-list" src={`${post.url}`} frameborder="0"></iframe>
+            <iframe className="feed-video-list" src={`${post.url}`}></iframe>
           }
         </div>
       </div>

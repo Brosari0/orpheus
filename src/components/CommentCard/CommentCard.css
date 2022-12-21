@@ -1,0 +1,19 @@
+.CommentCard {
+  text-align: left;
+  margin: 1vh 10vw;
+  border: #333 solid .5px;
+  
+}
+
+.comment-name {
+  font-weight: 600;
+  background-color: #333;
+  color: white;
+  padding-left: .5vw;
+}
+
+.comment-content {
+  margin: 5px;
+  padding-left: .5vw;
+  
+}
