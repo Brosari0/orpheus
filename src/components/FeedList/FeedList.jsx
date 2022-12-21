@@ -27,7 +27,8 @@ export default function FeedList({ post }) {
             <iframe className="feed-video-list" src={`${post.url}`}></iframe>
           }
         </div>
-      </div>
+      </div> <br /><br /><br /><br /><br /><br /><br /><br /><br /> 
+      {/* Temporary until I fix the css for the footer ^ */}
     </div>
 
   )

@@ -54,8 +54,10 @@ export default function DetailCard({ post, updatePost }) {
             post.comments.map((comment) => (
             <CommentCard comment={comment} key={comment._id} />
           ))}
-        </div> 
-        <Footer /> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+        </div> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+        {/* Temporary until I fix the css for the footer ^ */}
+        <Footer /> 
+
       </div>
     </>
   )

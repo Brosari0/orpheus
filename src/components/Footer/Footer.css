@@ -10,11 +10,15 @@
   text-align: center;
 }
 
-.Footer-text-left {
+.Footer-text {
   display: flex;
   word-spacing: 30px;
   justify-content: space-evenly;
   align-items: flex-end;
   padding: 10px;
-  cursor: pointer;
+}
+
+.Footer-text a {
+  color: white;
+  text-decoration: none;
 }

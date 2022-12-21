@@ -1,16 +1,17 @@
-import "./Footer.css"
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 export default function Footer() {
   return (
     <div className="Footer">
-      <div className="Footer-text-left">
-      <div>Mobile app</div>
-      <div>Community</div>
-      <div>Company</div>
+      <div className="Footer-text">
+      <Link><div>Mobile</div></Link>
+      <Link to={"/community"}><div>Community</div></Link>
+      <Link><div>Company</div></Link>
       <div><strong>Orpheus</strong></div>
-      <div>Help desk</div>
-      <div>Blog</div>
-      <div>Resources</div>
+      <Link to={"/support"}><div>Help</div></Link>
+      <Link><div>Blog</div></Link>
+      <Link><div>Resources</div></Link>
       </div>
       <hr />
       <footer>© Orpheus, Inc. 2022. We love our users!</footer>
