@@ -10,7 +10,7 @@
 
   ##### Rosario Rumore
 
-  [![LinkedIn Badge](https://img.shields.io/badge/-@Rosario-blue?style=flat&logo=Linkedin&logoColor=black)](www.linkedin.com/in/rosariorumore)
+  [![LinkedIn Badge](https://img.shields.io/badge/-@Rosario-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/rosariorumore/)
 
   ## :pencil: Description
 
