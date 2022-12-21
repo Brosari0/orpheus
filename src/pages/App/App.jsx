@@ -26,7 +26,7 @@ export default function App() {
       setPosts(postData)
     }
     displayPosts();
-  }, [user]);
+  }, []);
   
   return (
     <main className="App">
