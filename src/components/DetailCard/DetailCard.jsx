@@ -48,7 +48,7 @@ export default function DetailCard({ post, user }) {
             post.url.includes("mp4") ?
             <video className="detail-video-list" controls src={`${post.url}`}></video>
             : 
-            <iframe className="detail-video-list" src={`${post.url}`} frameborder="0"></iframe>
+            <iframe allowfullscreen="true" className="detail-video-list" src={`${post.url}`} frameborder="0"></iframe>
           }
           <h4 className="detail-title">
           {post.title}

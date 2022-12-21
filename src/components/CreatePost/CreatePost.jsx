@@ -25,22 +25,26 @@ export default function CreatePost({posts, setPosts}) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let { title, url, description } = formData
-    const payload = { title, url, description }
-    if (videoData) {
-      let vidForm = new FormData();
-      vidForm.append('title', formData.title);
-      vidForm.append('video', videoData);
-      let video = await postsAPI.upload(vidForm);
-      payload.url = video.url;
+    try {
+      let { title, url, description } = formData
+      const payload = { title, url, description }
+      if (videoData) {
+        let vidForm = new FormData();
+        vidForm.append('title', formData.title);
+        vidForm.append('video', videoData);
+        let video = await postsAPI.upload(vidForm);
+        payload.url = video.url;
+      }
+      const newPost = await postsAPI.create(payload);
+      setPosts([...posts, newPost]);
+      setFormData({
+        title: '',
+        url: '',
+        description: '',
+      });
+    } catch {
+      return "Validation Failed"
     }
-    const newPost = await postsAPI.create(payload);
-    setPosts([...posts, newPost]);
-    setFormData({
-      title: '',
-      url: '',
-      description: '',
-    });
   }
 
   async function handleGetMedia() {
@@ -87,7 +91,7 @@ export default function CreatePost({posts, setPosts}) {
     <div className="CreatePost">
     <form className="create-form" onSubmit={handleSubmit}>
       <label>Title:</label>
-      <input name="title" type="text" value={formData.title} onChange={handleChange}/>
+      <input name="title" type="text" value={formData.title} onChange={handleChange} required />
       <label>URL (If YouTube):</label>
       <input name="url" type="text" value={formData.url} onChange={handleChange}/>
       <label>Description:</label>

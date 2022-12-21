@@ -11,6 +11,7 @@ const commentSchema = new Schema({
     ref: 'User',
     required: true
   },
+  userName: { Type: String }
 }, {
   timestamps: true
 });
@@ -23,7 +24,7 @@ const postSchema = new Schema({
     required: true,
   },
   description: {type: String},
-  url: {type: String},
+  url: {type: String, required: true},
   isYoutube: {type: Boolean, default: false},
   comments: [commentSchema]
 });

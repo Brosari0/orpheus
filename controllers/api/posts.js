@@ -10,7 +10,8 @@ module.exports = {
 };
 
 async function deletePost(req, res) {
-  Post.findOneAndDelete(req.params.id);
+  Post.findByIdAndDelete(req.params.id);
+  res.json();
 }
 
 async function upload(req, res) {
@@ -24,8 +25,6 @@ async function upload(req, res) {
         title: req.body.title
       });
       res.json(videoDoc);
-    } else {
-      throw new Error('Something went wrong.');
     }
   } catch (err) {
     res.status(400).json(err.message);
@@ -33,16 +32,19 @@ async function upload(req, res) {
 }
 
 async function create(req, res) {
-  req.body.user = req.user._id
-  if (req.body.url.includes('watch?v=')) {
-    req.body.isYoutube = true;
-    req.body.url = req.body.url.replace('watch?v=', 'embed/');
-    if (req.body.url.includes("&")) req.body.url = req.body.url.slice(0, req.body.url.indexOf('&') - 2)
+  try {
+    req.body.user = req.user._id
+    if (req.body.url.includes('watch?v=')) {
+      req.body.isYoutube = true;
+      req.body.url = req.body.url.replace('watch?v=', 'embed/');
+      if (req.body.url.includes("&")) req.body.url = req.body.url.slice(0, req.body.url.indexOf('&') - 2)
+    }
+    const post = new Post(req.body)
+    post.save();
+    res.json(post);
+  } catch {
+    res.status(400)
   }
-  
-  const post = new Post(req.body)
-  post.save();
-  res.json(post);
 }
 
 async function find(req, res) {
