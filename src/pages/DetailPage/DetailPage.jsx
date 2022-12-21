@@ -8,7 +8,7 @@ export default function DetailPage( { posts, user } ) {
 
   return (
     <>
-    <DetailCard user={user} post={post}/>
+    <DetailCard user={user} post={post} posts={posts} />
     </>
   )
 }

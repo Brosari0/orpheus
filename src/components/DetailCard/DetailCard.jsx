@@ -3,12 +3,23 @@ import CommentCard from "../CommentCard/CommentCard";
 import * as commentsAPI from "../../utilities/comments-api";
 import * as postsAPI from "../../utilities/posts-api";
 import "./DetailCard.css";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export default function DetailCard({ post, user }) {
+export default function DetailCard({ post, user, posts }) {
+  const { id } = useParams();
   const [comments, setComments] = useState([]);
   const [formData, setFormData] = useState({
     content: ''
   });
+
+  useEffect(() => {
+    async function updatePost() {
+      post = posts.find((post) => post._id === id);
+      setComments(post.comments)
+    }
+    updatePost();
+  }, [post])
 
   function handleChange(evt) {
     setFormData({content: evt.target.value});
@@ -17,8 +28,8 @@ export default function DetailCard({ post, user }) {
   async function handleSubmit(evt) {
     evt.preventDefault(); 
     formData._id = post._id
-    const newComment = await commentsAPI.create(formData);
-    setComments([...comments], newComment);
+    const updatedPost = await commentsAPI.create(formData);
+    setComments(updatedPost.comments);
     setFormData({
       content: ''
     });
@@ -73,7 +84,7 @@ export default function DetailCard({ post, user }) {
         </form>
         <p>
           { 
-            post.comments.map((comment) => (
+            comments.map((comment) => (
             <CommentCard comment={comment} key={comment._id} />
           ))}
         </p>
