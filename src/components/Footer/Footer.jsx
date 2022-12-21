@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="Footer-text">
       <Link><div>Mobile</div></Link>
       <Link to={"/community"}><div>Community</div></Link>
-      <Link><div>Company</div></Link>
+      <a href="https://generalassemb.ly/" target={"_blank"}>Company</a>
       <div><strong>Orpheus</strong></div>
       <Link to={"/support"}><div>Help</div></Link>
       <Link><div>Blog</div></Link>
