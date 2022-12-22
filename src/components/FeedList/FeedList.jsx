@@ -24,7 +24,7 @@ export default function FeedList({ post }) {
             post.url.includes("mp4") ?
             <video className="feed-video-list" controls src={`${post.url}`}></video>
             : 
-            <iframe className="feed-video-list" src={`${post.url}`}></iframe>
+            <iframe className="feed-video-list" src={`${post.url}`} allowFullScreen></iframe>
           }
         </div>
       </div> <br /><br /><br /><br /><br /><br /><br /><br /><br /> 
