@@ -1,10 +1,10 @@
 /* CSS Custom Properties */
 :root {
   --white: #ffffff;
-  --tan-1: #beddf4;
-  --tan-2: #69bdf9;
-  --tan-3: #38a9fa;
-  --tan-4: #1f9ef9;
+  --blue-1: #beddf4;
+  --blue-2: #69bdf9;
+  --blue-3: #38a9fa;
+  --blue-4: #1f9ef9;
   --blue: #0090f6;
   --text-light: #004576;
   --text-dark: #002744;
@@ -69,9 +69,9 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--tan-1);
+  background-color: var(--blue-1);
   color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid var(--blue-3);
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
@@ -80,8 +80,8 @@ code {
 
 .form-container {
   padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
+  background-color: var(--blue-1);
+  border: .1vmin solid var(--blue-3);
   border-radius: 1vmin;
 }
 
@@ -106,9 +106,9 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid var(--blue-3);
   border-radius: .5vmin;
-  color: var(--text-dark);
+  color: var(--text-dark); 
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
@@ -126,7 +126,7 @@ button, a.button {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid var(--blue-2);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
@@ -144,7 +144,7 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: var(--blue-4);
 }
 
 button[type="submit"] {
