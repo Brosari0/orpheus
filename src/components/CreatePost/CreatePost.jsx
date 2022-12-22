@@ -35,13 +35,13 @@ export default function CreatePost({posts, setPosts}) {
         let video = await postsAPI.upload(vidForm);
         payload.url = video.url;
       }
-      const newPost = await postsAPI.create(payload);
-      setPosts([...posts, newPost]);
       setFormData({
         title: '',
         url: '',
         description: '',
       });
+      const newPost = await postsAPI.create(payload);
+      setPosts([...posts, newPost]);
     } catch {
       return "Validation Failed"
     }
