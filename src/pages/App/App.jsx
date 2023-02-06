@@ -56,7 +56,24 @@ export default function App() {
             </Routes>
           </>
           :
-          <AuthPage setUser={setUser} />
+          <>
+          <NavBar user={user} setUser={setUser} />
+          <Routes>
+            {/* Route components in here */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/create" element={<CreatePostPage setPosts={setPosts} posts={posts} />} />
+            <Route path="/feed" element={<FeedPage posts={posts} />} />
+            <Route path="/community" element={<CommunityPage />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/beginner" element={<BeginnerPage />} />
+            <Route path="/intermediate" element={<IntermediatePage />} />
+            <Route path="/advanced" element={<AdvancedPage />} />
+            <Route path="/orpheus" element={<OrpheusPage />} />
+            <Route path="/feed/:id" element={<DetailPage updatePost={updatePost} posts={posts} />} />
+            <Route path="/auth" element={<AuthPage setUser={setUser} />} />
+          </Routes>
+          
+          </>
       }
     </main>
   );
