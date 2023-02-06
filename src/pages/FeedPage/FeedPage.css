@@ -6,17 +6,16 @@
   border: #333 solid 5px;
   background-color: white;
   width: 100vw;
-  height: 600px;
+  height: 80vmin;
   
 }
 
 .structure {
   display: grid;
   justify-content: center;
-  background-color: #333;
 }
 
 h1 {
   background-color: white;
-  padding: 30px;
+  padding: 1.5vmin;
 }
