@@ -59,6 +59,15 @@ li a:hover {
 .logout {
   float: right;
 }
+
 .logout a:hover {
   background-color: rgb(76, 0, 0);
+}
+
+.login {
+  float: right;
+}
+
+.login a:hover {
+  background-color: rgb(0, 72, 31);
 }

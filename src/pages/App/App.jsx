@@ -52,7 +52,7 @@ export default function App() {
               <Route path="/intermediate" element={<IntermediatePage />} />
               <Route path="/advanced" element={<AdvancedPage />} />
               <Route path="/orpheus" element={<OrpheusPage />} />
-              <Route path="/feed/:id" element={<DetailPage updatePost={updatePost} posts={posts} />} />
+              <Route path="/feed/:id" element={<DetailPage user={user} updatePost={updatePost} posts={posts} />} />
             </Routes>
           </>
           :

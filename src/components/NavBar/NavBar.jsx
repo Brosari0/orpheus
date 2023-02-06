@@ -25,7 +25,7 @@ export default function NavBar({ user, setUser }) {
         { user ? 
         <li className='logout'><Link to="" onClick={handleLogOut}>Log Out</Link></li>
         :
-        <li className='logout'><Link to="auth" onClick={handleLogOut}>Login</Link></li>
+        <li className='login'><Link to="auth" onClick={handleLogOut}>Login</Link></li>
         }
       </ul>
     </nav>
