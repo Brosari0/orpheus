@@ -1,3 +1,8 @@
+.detail-body {
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+}
+
 .detail-form {
   margin: 5vh 10vw;
 }
