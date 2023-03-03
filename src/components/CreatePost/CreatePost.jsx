@@ -83,10 +83,6 @@ export default function CreatePost({posts, setPosts}) {
     }
   }
 
-  // async function handleGetMedia() {
-  //   let stream = await postsAPI.getMedia();
-  // }
-
   return (
     <div className="CreatePost">
     <form className="create-form" onSubmit={handleSubmit}>
