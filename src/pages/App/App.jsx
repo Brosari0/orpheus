@@ -13,7 +13,7 @@ import BeginnerPage from '../BeginnerPage/BeginnerPage';
 import IntermediatePage from '../IntermediatePage/IntermediatePage';
 import AdvancedPage from '../AdvancedPage/AdvancedPage';
 import OrpheusPage from '../OrpheusPage/OrpheusPage';
-import * as postsAPI from '../../utilities/posts-api';
+// import * as postsAPI from '../../utilities/posts-api';
 import DetailPage from '../DetailPage/DetailPage';
 
 export default function App() {
@@ -21,13 +21,13 @@ export default function App() {
   const [posts, setPosts] = useState([]);
   
 
-  useEffect(() => {
-    async function displayPosts() {
-      const postData = await postsAPI.find();
-      setPosts(postData);
-    }
-    displayPosts();
-  }, []);
+  // useEffect(() => {
+  //   async function displayPosts() {
+  //     const postData = await postsAPI.find();
+  //     setPosts(postData);
+  //   }
+  //   displayPosts();
+  // }, []);
 
   function updatePost(updatedPost) {
     const idx = posts.findIndex((p) => p._id === updatedPost._id);
@@ -45,7 +45,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/create" element={<CreatePostPage setPosts={setPosts} posts={posts} />} />
-              <Route path="/feed" element={<FeedPage posts={posts} />} />
+              <Route path="/feed" element={<FeedPage setPosts={setPosts} posts={posts} />} />
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/support" element={<SupportPage />} />
               <Route path="/beginner" element={<BeginnerPage />} />

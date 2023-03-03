@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   margin: 30px;
   padding: 20px;
+  padding-bottom: 5rem;
 }
 
 .create-form {

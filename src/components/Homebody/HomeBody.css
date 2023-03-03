@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 100px;
   margin: 50px;
+  padding-bottom: 5rem;
 }
 
 .HomeBody h1 {

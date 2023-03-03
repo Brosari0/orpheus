@@ -1,6 +1,7 @@
 import sendRequest from "./send-request";
 
 const BASE_URL = '/api/posts';
+const options = 'GET';
 
 export async function create(payload) {
   return sendRequest(`${BASE_URL}/create`, 'POST', payload);

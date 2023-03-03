@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import FeedList from "../../components/FeedList/FeedList";
+import * as postsAPI from '../../utilities/posts-api';
 import "./FeedPage.css"
 
-export default function FeedPage({ posts }) {
+export default function FeedPage({ setPosts, posts }) {
+
+  useEffect(() => {
+  async function displayPosts() {
+    const postData = await postsAPI.find();
+    setPosts(postData);
+  }
+  displayPosts();
+  }, []);
 
   return (
     <div className="structure">

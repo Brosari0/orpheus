@@ -7,12 +7,12 @@
   background-color: white;
   width: 100vw;
   height: 80vmin;
-  
 }
 
 .structure {
   display: grid;
   justify-content: center;
+  padding-top: 2.5rem;
 }
 
 h1 {

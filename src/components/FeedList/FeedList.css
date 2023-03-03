@@ -3,6 +3,7 @@
   gap: 30px;
   grid-template-columns: 1fr 1fr;
   width: 500px;
+  padding: 5rem auto;
 }
 
 .FeedList button {

@@ -15,11 +15,13 @@ export default function NavBar({ user, setUser }) {
       <ul>
         <li><Link to="/">Home</Link></li>
         { user ? 
+        <>
         <li><Link to="/create">Create</Link></li>
+        <li><Link to="/feed">Feed</Link></li>
+        </>
         : 
         ''
         }
-        <li><Link to="/feed">Feed</Link></li>
         <li><Link to="/community">Community</Link></li>
         <li><Link to="/support">support</Link></li>
         { user ? 
