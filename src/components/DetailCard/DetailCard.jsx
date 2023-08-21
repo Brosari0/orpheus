@@ -15,7 +15,7 @@ export default function DetailCard({ user, post, updatePost }) {
     setNewComment('')
   }
 
-  
+
   async function handleDelete() {
     await postsAPI.deletePost(post._id); 
   }
@@ -24,7 +24,7 @@ export default function DetailCard({ user, post, updatePost }) {
   <>
       <div className="detail-body">
         {user.name === post.user.name ? 
-          <button>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
           :
           ''
         }

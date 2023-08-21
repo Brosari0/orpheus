@@ -1,4 +1,4 @@
-const {uploadFile, downloadFile} = require('../../config/aws-server-manager');
+const { uploadFile } = require('../../config/aws-server-manager');
 const Post = require('../../models/post')
 const Video = require('../../models/video');
 
@@ -10,7 +10,7 @@ module.exports = {
 };
 
 async function deletePost(req, res) {
-  Post.findByIdAndDelete(req.params.id);
+  Post.findOneAndDelete({'_id': req.params.id, 'post.user': req.user._id});
   res.json();
 }
 
